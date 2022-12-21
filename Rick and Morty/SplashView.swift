@@ -44,7 +44,6 @@ struct SplashView: View {
         ZStack {
             Color.blueMain
             Image(decorative: "img_splash")
-
             Image(decorative: "img_logo")
                 .resizable().scaledToFit()
                 .scaledToFit()

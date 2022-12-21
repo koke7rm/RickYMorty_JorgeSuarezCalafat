@@ -22,6 +22,7 @@ final class CharacterDetailVM: ObservableObject {
         }
     }
     
+    /// Método para obtener un episodio
     @MainActor func getEpisode() async {
         loading = true
         do {

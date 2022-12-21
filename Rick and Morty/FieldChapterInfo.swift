@@ -31,3 +31,4 @@ struct FieldChapterInfo_Previews: PreviewProvider {
         FieldChapterInfo(titleText: "Gender:", infoText: "Male")
     }
 }
+
