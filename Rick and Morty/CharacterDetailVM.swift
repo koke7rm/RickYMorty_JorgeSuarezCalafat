@@ -14,6 +14,7 @@ final class CharacterDetailVM: ObservableObject {
     @Published var episode: Episode?
     @Published var character: Character
     @Published var errorMsg = ""
+    @Published var showAlert = false
     
     init(character: Character) {
         self.character = character
@@ -29,8 +30,10 @@ final class CharacterDetailVM: ObservableObject {
             self.episode = try await persistance.getEpisode(url: character.episode?.first)
         } catch let error as APIErrors {
             errorMsg = error.description
+            showAlert.toggle()
         } catch {
             errorMsg = error.localizedDescription
+            showAlert.toggle()
         }
         loading = false
     }

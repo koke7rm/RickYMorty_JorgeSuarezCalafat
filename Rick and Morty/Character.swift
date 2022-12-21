@@ -46,5 +46,5 @@ struct Location: Codable, Hashable {
 }
 
 extension Character {
-    static let characterTest = Character(id: 1, name: "Rick Sanchez", image: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")!, status: "Alive", species: "Human", origin: Origin(name: "Earth (C-137)"), type: "", gender: "Male", location: Location(name: "Citadel of Ricks"), episode: ["https://rickandmortyapi.com/api/episode/1"])
+    static let characterTest = Character(id: 3, name: "Summer Smith", image: URL(string: "https://rickandmortyapi.com/api/character/avatar/3.jpeg")!, status: "Alive", species: "Human", origin: Origin(name: "Earth (Replacement Dimension)"), type: "", gender: "Female", location: Location(name: "Earth (Replacement Dimension)"), episode: ["https://rickandmortyapi.com/api/episode/1"])
 }

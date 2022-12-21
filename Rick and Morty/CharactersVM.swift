@@ -14,6 +14,7 @@ final class CharactersVM: ObservableObject {
     @Published var errorMsg = ""
     @Published var characters: [Character] = [.characterTest]
     @Published var search = ""
+    @Published var showAlert = false
     
     var currentPage = 1
     var pages = 0
@@ -42,8 +43,10 @@ final class CharactersVM: ObservableObject {
             pages = result.info.pages
         } catch let error as APIErrors {
             errorMsg = error.description
+            showAlert.toggle()
         } catch {
             errorMsg = error.localizedDescription
+            showAlert.toggle()
         }
         loading = false
     }

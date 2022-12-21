@@ -37,6 +37,19 @@ struct HomeView: View {
                 pageButtons
             }
         }
+        .alert("Connection error", isPresented: $charactersVM.showAlert) {
+            Button(action: {}) {
+                Text("OK")
+            }
+        } message: {
+            Text(charactersVM.errorMsg)
+        }
+        .overlay {
+            if charactersVM.loading {
+                LoaderView()
+                    .transition(.opacity)
+            }
+        }
     }
     
     var pageButtons: some View {

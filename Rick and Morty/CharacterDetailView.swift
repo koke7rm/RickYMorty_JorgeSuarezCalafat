@@ -16,6 +16,7 @@ struct CharacterDetailView: View {
             Image(decorative: "img_backDetail")
                 .resizable()
                 .scaledToFill()
+                .frame(width: UIScreen.main.bounds.size.width)
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack(spacing: 8) {
@@ -26,6 +27,20 @@ struct CharacterDetailView: View {
                 .cornerRadius(20)
             }
             .padding(.top, 60)
+            .padding()
+            .alert("Connection error", isPresented: $characterDetailVM.showAlert) {
+                Button(action: {}) {
+                    Text("OK")
+                }
+            } message: {
+                Text(characterDetailVM.errorMsg)
+            }
+            .overlay {
+                if characterDetailVM.loading {
+                    LoaderView()
+                        .transition(.opacity)
+                }
+            }
         }
         .navigationTitle("Character Detail")
         .navigationBarTitleDisplayMode(.inline)
@@ -61,6 +76,7 @@ struct CharacterDetailView: View {
                 Text(" \(characterDetailVM.character.status) - \(characterDetailVM.character.species)")
             }
         }
+        .padding()
     }
     
     var detailInfo: some View {
@@ -72,7 +88,6 @@ struct CharacterDetailView: View {
             FieldChapterInfo(titleText: "First seen in:", infoText: characterDetailVM.episode?.name ?? "-")
         }
         .padding()
-        .background(Color.gray)
     }
 }
 
