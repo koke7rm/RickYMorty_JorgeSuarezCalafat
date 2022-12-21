@@ -22,3 +22,4 @@ struct Rick_and_MortyApp: App {
         }
     }
 }
+
